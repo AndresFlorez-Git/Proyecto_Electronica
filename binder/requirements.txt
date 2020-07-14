@@ -5,7 +5,7 @@ vdom
 matplotlib
 imageio
 numpy
-scipy
+scipy==1.4.1
 tensorflow
 keras
 tqdm
