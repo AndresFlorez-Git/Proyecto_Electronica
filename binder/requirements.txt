@@ -5,7 +5,6 @@ vdom
 matplotlib
 imageio
 numpy
-os
 scipy
 tensorflow
 keras
