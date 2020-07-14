@@ -6,7 +6,7 @@ matplotlib
 imageio
 numpy
 os
-scipy=1.4.1
+scipy
 tensorflow
 keras
 tqdm
