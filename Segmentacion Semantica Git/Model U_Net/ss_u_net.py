@@ -46,11 +46,16 @@ IMG_CHANNELS = 3
 ##############################################################################
 ####################  Path del data set aumentado ############################
 ##############################################################################
+BASE_PATH = str(os.path.dirname(os.path.abspath('')))
 
+if ('\\' in BASE_PATH) == True:
+    separator_dir = '\\'
+else:
+    separator_dir = '/'
 # Path de las imagenes, mascaras e imagenes de prueba
-TRAIN_PATH_IMAGES = 'Augmentation_data_set_segmentation\images'
-TRAIN_PATH_MASKS = 'Augmentation_data_set_segmentation\masks'
-TEST_PATH_IMAGES = 'Dataset\Segmentar\Test'
+TRAIN_PATH_IMAGES = BASE_PATH + separator_dir + 'Augmented Train Data' + separator_dir + 'Images'
+TRAIN_PATH_MASKS = BASE_PATH + separator_dir + 'Augmented Train Data' + separator_dir + 'Masks'
+TEST_PATH_IMAGES = BASE_PATH + separator_dir +'Data Set' + separator_dir +'Test'
 
 
 ##############################################################################
@@ -73,22 +78,23 @@ X_test = np.zeros((len(Test_images_files), IMG_HEIGHT, IMG_WIDTH, IMG_CHANNELS),
 print('Resizing train images')
 
 for n, id_ in tqdm(enumerate(Train_images_files), total=len(Train_images_files)):
-    path_image = TRAIN_PATH_IMAGES + '\\'
-    path_mask = TRAIN_PATH_MASKS + '\\'
+    path_image = TRAIN_PATH_IMAGES + separator_dir
+    path_mask = TRAIN_PATH_MASKS + separator_dir
     img = imread(path_image + Train_images_files[n])[:,:,:IMG_CHANNELS]
-    # img = resize(img, (IMG_HEIGHT, IMG_WIDTH), mode='constant', preserve_range=True)
+    img = resize(img, (IMG_HEIGHT, IMG_WIDTH), mode='constant', preserve_range=True)
     X_train[n] = img
     mask = imread(path_mask + Train_masks_files[n])
     mask = np.expand_dims(mask, axis=-1)
     Y_train[n] = mask
-    
+
 print('Resizing test images')
 for n, id_ in tqdm(enumerate(Test_images_files), total=len(Test_images_files)):
-    path_image = TEST_PATH_IMAGES + '\\'
+    path_image = TEST_PATH_IMAGES + separator_dir
     img = imread(path_image + Test_images_files[n])[:,:,:IMG_CHANNELS]
     img = resize(img, (IMG_HEIGHT, IMG_WIDTH), mode='constant', preserve_range=True)
     X_test[n] = img
-    
+
+
     
 ##############################################################################
 #####################  Arquitectura del modelo ###############################
