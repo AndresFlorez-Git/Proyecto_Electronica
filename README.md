@@ -8,8 +8,8 @@ La información estará segmentada por temáticas en las diferentes carpetas, do
 
 ## Contenido del proyecto:
 - Problemática 
-- Librerías y dependencias
-- Segmentación Semántica
+- Librerías y dependencias [Aquí](https://github.com/AndresFlorez-Git/Proyecto_Electronica/tree/master/Librerias%20y%20Dependencias)
+- Segmentación Semántica [Aquí](https://github.com/AndresFlorez-Git/Proyecto_Electronica/tree/master/Segmentacion%20Semantica%20Git)
     - Base de datos
     - Pre-procesamiento de Base de datos
     - Modelo de Segmentación Semántica *U-Net*
