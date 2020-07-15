@@ -2,7 +2,7 @@
 """
 Created on Sat Jul  4 14:00:32 2020
 
-@author: ANDRES FELIPE FLOREZ 
+@author: ANDRES FELIPE FLOREZ
 """
 import keras
 from skimage.io import imread, imshow, imsave
@@ -16,9 +16,9 @@ import shutil
 # input.  Dicho aumento de datos queda almacenado en la carpeta llamada Augmentation_data_set_segmentation en el directorio actual de trabajo.
 
 
-BASE_PATH = str(os.path.dirname(os.path.abspath('')))
+BASE_PATH = str(os.path.dirname(os.path.abspath(''))) # path del la carpeta Segmentacion Semantica Git
 
-if ('\\' in path_folder_images) == True:
+if ('\\' in BASE_PATH) == True:
     separator_dir = '\\'
 else:
     separator_dir = '/'
@@ -31,25 +31,25 @@ images_per_photo = 20
 
 
     
-def augmetation_data_set(path_folder_images,path_folder_masks, Size_image, images_per_photo):
+def augmetation_data_set(BASE_PATH ,path_folder_images,path_folder_masks, Size_image, images_per_photo):
     if ('\\' in path_folder_images) == True:
         separator_dir = '\\'
     else:
         separator_dir = '/'
 
     # Se asigna el nombre a los directorios donde se almacenarán los datos aumentados.
-    New_path = 'Augmented Train Data'
+    New_path = BASE_PATH + separator_dir + 'Augmented Train Data'
     New_path_images = 'Images'
     New_path_masks = 'Masks'
     
     # Se crean los directorios asociados al destino de de los datos aumentados
     try:
-    if os.path.exists(New_path + separator_dir + New_path_images) == True:
-        shutil.rmtree(New_path + separator_dir + New_path_images)
-        shutil.rmtree(New_path + separator_dir + New_path_masks)
-    if os.path.exists(New_path + separator_dir + New_path_images) == False: 
-        os.mkdir(New_path + separator_dir + New_path_images)
-        os.mkdir(New_path + separator_dir + New_path_masks)
+        if os.path.exists(New_path + separator_dir + New_path_images) == True:
+            shutil.rmtree(New_path + separator_dir + New_path_images)
+            shutil.rmtree(New_path + separator_dir + New_path_masks)
+        if os.path.exists(New_path + separator_dir + New_path_images) == False: 
+            os.mkdir(New_path + separator_dir + New_path_images)
+            os.mkdir(New_path + separator_dir + New_path_masks)
     except:
         if os.path.exists(New_path + separator_dir + New_path_images) == True:
             shutil.rmtree(New_path + separator_dir + New_path_images)
@@ -125,5 +125,5 @@ def augmetation_data_set(path_folder_images,path_folder_masks, Size_image, image
 
             
             
-augmetation_data_set(path_folder_images,path_folder_masks, Size_image, images_per_photo)      
+augmetation_data_set(BASE_PATH,path_folder_images,path_folder_masks, Size_image, images_per_photo)      
 
