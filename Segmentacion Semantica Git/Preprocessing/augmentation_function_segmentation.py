@@ -2,7 +2,7 @@
 """
 Created on Sat Jul  4 14:00:32 2020
 
-@author: ANDRES FELIPE FLOREZ
+@author: ANDRES FELIPE FLOREZ 
 """
 import keras
 from skimage.io import imread, imshow, imsave
