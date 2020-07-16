@@ -94,7 +94,14 @@ for n, id_ in tqdm(enumerate(Test_images_files), total=len(Test_images_files)):
     img = imread(path_image + Test_images_files[n])[:,:,:IMG_CHANNELS]
     img = resize(img, (IMG_HEIGHT, IMG_WIDTH), mode='constant', preserve_range=True)
     X_test[n] = img
-    
+
+# Es necesario organizar de forma aleatoria el dataset aumentado para un correcto entrenamiento del modelo
+index = np.arange(X_train.shape[0])
+np.random.shuffle(index)
+
+X_train = X_train[index]
+Y_train = Y_train[index]
+   
 ##############################################################################
 #####################  Arquitectura del modelo ###############################
 ##############################################################################
@@ -124,7 +131,7 @@ model.summary()
 
 checkpointer = tf.keras.callbacks.ModelCheckpoint('model_for_pv.h5', verbose=1, save_best_only = True)
 
-callbacks = [tf.keras.callbacks.EarlyStopping(patience=5, monitor='val_loss'),
+callbacks = [tf.keras.callbacks.EarlyStopping(patience=4, monitor='val_loss'),
               tf.keras.callbacks.TensorBoard(log_dir='logs')]
 
 ##############################################################################
@@ -133,7 +140,8 @@ callbacks = [tf.keras.callbacks.EarlyStopping(patience=5, monitor='val_loss'),
 results = model.fit(X_train, Y_train, validation_split=0.1, batch_size=16, epochs=25, callbacks=callbacks)
 
 # Descomentar si se quiere guardar el modelo entrenado
-# model.save('Modelo_de_segmentacion2.h5')
+Val_acc = results.history['val_acc'][-1]
+model.save('Modelos_Guardados\Modelo_Basic_val_acc_'+str(round(Val_acc,4))+'.h5')
 
 plt.figure(1,figsize=(5,5))
 plt.plot(results.history['loss'], label = 'Train')
@@ -181,11 +189,12 @@ imshow(np.squeeze(preds_val_t[ix]))
 plt.show()
 
 
-# Perform a sanity check on some random validation samples
-ix = 0
+# Perform a sanity check on some random test samples
+ix = random.randint(0, len(preds_test_t)-1)
 imshow(X_test[ix])
 plt.show()
 imshow(np.squeeze(preds_test_t[ix]))
 plt.show()
+
 
 

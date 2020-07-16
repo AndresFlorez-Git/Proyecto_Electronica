@@ -87,6 +87,13 @@ for n, id_ in tqdm(enumerate(Train_images_files), total=len(Train_images_files))
     mask = np.expand_dims(mask, axis=-1)
     Y_train[n] = mask
 
+# Es necesario organizar de forma aleatoria el dataset aumentado para un correcto entrenamiento del modelo
+index = np.arange(X_train.shape[0])
+np.random.shuffle(index)
+
+X_train = X_train[index]
+Y_train = Y_train[index]
+
 print('Resizing test images')
 for n, id_ in tqdm(enumerate(Test_images_files), total=len(Test_images_files)):
     path_image = TEST_PATH_IMAGES + separator_dir
@@ -155,7 +162,7 @@ outputs = tf.keras.layers.Conv2D(1, (1,1), activation='sigmoid')(c9)
 model = tf.keras.Model(inputs = [inputs], outputs = [outputs])
 model.compile(optimizer='adam', loss = 'binary_crossentropy', metrics = ['accuracy'])
 model.summary()
-tf.keras.utils.plot_model(model,'Unet_model.png',show_shapes=False)
+# tf.keras.utils.plot_model(model,'Unet_model.png',show_shapes=False)
 
 ##############################################################################
 ##########################  Modelcheckpoint ##################################
@@ -164,17 +171,17 @@ tf.keras.utils.plot_model(model,'Unet_model.png',show_shapes=False)
 
 checkpointer = tf.keras.callbacks.ModelCheckpoint('model_for_pv.h5', verbose=1, save_best_only = True)
 
-callbacks = [tf.keras.callbacks.EarlyStopping(patience=5, monitor='val_loss'),
+callbacks = [tf.keras.callbacks.EarlyStopping(patience=4, monitor='val_loss'),
               tf.keras.callbacks.TensorBoard(log_dir='logs')]
 
 ##############################################################################
 ####################  Resultados del modelo ##################################
 ##############################################################################
-results = model.fit(X_train, Y_train, validation_split=0.1, batch_size=16, epochs=8, callbacks=callbacks)
+results = model.fit(X_train, Y_train, validation_split=0.1, batch_size=16, epochs=25, callbacks=callbacks)
 
 # Descomentar si se quiere guardar el modelo entrenado
-# model.save('Modelo_de_segmentacion2.h5')
-
+Val_acc = results.history['val_acc'][-1]
+model.save('Modelos_Guardados'+separator_dir+'Modelo_U_Net_val_acc_'+str(round(Val_acc,4))+'.h5')
 
 plt.figure(1,figsize=(5,5))
 plt.plot(results.history['loss'], label = 'Train')
@@ -200,7 +207,7 @@ preds_test = model.predict(X_test, verbose=1)
  
 preds_train_t = (preds_train > 0.7).astype(np.uint8)
 preds_val_t = (preds_val > 0.7).astype(np.uint8)
-preds_test_t = (preds_test > 0.8).astype(np.uint8)
+preds_test_t = (preds_test > 0.9).astype(np.uint8)
 
 
 # Perform a sanity check on some random training samples
@@ -221,9 +228,8 @@ plt.show()
 imshow(np.squeeze(preds_val_t[ix]))
 plt.show()
 
-
-# Perform a sanity check on some random validation samples
-ix = 0
+# Perform a sanity check on some random test samples
+ix = random.randint(0, len(preds_test_t)-1)
 imshow(X_test[ix])
 plt.show()
 imshow(np.squeeze(preds_test_t[ix]))
