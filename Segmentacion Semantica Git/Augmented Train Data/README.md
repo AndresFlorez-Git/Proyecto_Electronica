@@ -1,4 +1,4 @@
-# Aumentar datos
+# Data Augmentation
 
 Corresponden a técnicas para aumentar el tamaño del conjunto de datos con el que se cuenta, con el fin de enriquecer el proceso de entrenamiento de los modelos de segmentación.
 
@@ -22,3 +22,8 @@ Para poder utilizar estas técnicas adecuadamente en el proceso de entrenamiento
 ![ejemplo2_t1](https://github.com/AndresFlorez-Git/Proyecto_Electronica/blob/master/Segmentacion%20Semantica%20Git/Augmented%20Train%20Data/Masks/aug_51_1140.png)
 ![ejemplo2_t2](https://github.com/AndresFlorez-Git/Proyecto_Electronica/blob/master/Segmentacion%20Semantica%20Git/Augmented%20Train%20Data/Masks/aug_51_1149.png)
 ![ejemplo2_t3](https://github.com/AndresFlorez-Git/Proyecto_Electronica/blob/master/Segmentacion%20Semantica%20Git/Augmented%20Train%20Data/Masks/aug_51_1654.png)
+
+
+### Explorar:
+- Conjunto de datos original. [Aquí](https://github.com/AndresFlorez-Git/Proyecto_Electronica/tree/master/Segmentacion%20Semantica%20Git/Data%20Set)
+- Función para Data Augmentation. [Aquí](https://github.com/AndresFlorez-Git/Proyecto_Electronica/tree/master/Segmentacion%20Semantica%20Git/Preprocessing)
