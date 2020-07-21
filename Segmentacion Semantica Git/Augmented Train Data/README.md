@@ -13,3 +13,11 @@ A partir imágenes originales, es posible obtener un gran volumen de datos a par
 ## Aplicación Práctica
 
 Para poder utilizar estas técnicas adecuadamente en el proceso de entrenamiento de un modelo de segmentación semántica resulta necesario realizar las mismas transformaciones tanto a las imágenes como de las mascaras binarias de segmentación.
+![ejemplo1](https://github.com/AndresFlorez-Git/Proyecto_Electronica/blob/master/Segmentacion%20Semantica%20Git/Data%20Set/Images/28.jpg)
+![ejemplo1_t1](https://github.com/AndresFlorez-Git/Proyecto_Electronica/blob/master/Segmentacion%20Semantica%20Git/Augmented%20Train%20Data/Images/aug_51_1140.png)
+![ejemplo1_t2](https://github.com/AndresFlorez-Git/Proyecto_Electronica/blob/master/Segmentacion%20Semantica%20Git/Augmented%20Train%20Data/Images/aug_51_1149.png)
+![ejemplo1_t3](https://github.com/AndresFlorez-Git/Proyecto_Electronica/blob/master/Segmentacion%20Semantica%20Git/Augmented%20Train%20Data/Images/aug_51_1654.png)
+![ejemplo2](https://github.com/AndresFlorez-Git/Proyecto_Electronica/blob/master/Segmentacion%20Semantica%20Git/Data%20Set/Masks/Label_28.png)
+![ejemplo2_t1](https://github.com/AndresFlorez-Git/Proyecto_Electronica/blob/master/Segmentacion%20Semantica%20Git/Augmented%20Train%20Data/Masks/aug_51_1140.png)
+![ejemplo2_t2](https://github.com/AndresFlorez-Git/Proyecto_Electronica/blob/master/Segmentacion%20Semantica%20Git/Augmented%20Train%20Data/Masks/aug_51_1149.png)
+![ejemplo2_t3](https://github.com/AndresFlorez-Git/Proyecto_Electronica/blob/master/Segmentacion%20Semantica%20Git/Augmented%20Train%20Data/Masks/aug_51_1654.png)
