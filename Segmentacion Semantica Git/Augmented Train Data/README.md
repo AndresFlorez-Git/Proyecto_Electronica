@@ -6,7 +6,7 @@ Dichas técnicas corresponden a rotaciones, reflexiones, translaciones, cambios 
 ## Ejemplo
 
 A partir imágenes originales, es posible obtener un gran volumen de datos a partir de las transformaciones de los datos originales.
-![Monalisa](https://github.com/AndresFlorez-Git/Proyecto_Electronica/blob/master/Segmentacion%20Semantica%20Git/Augmented%20Train%20Data/Examples/monalisa.jpg){height=200 width=200}
+![Monalisa](https://github.com/AndresFlorez-Git/Proyecto_Electronica/blob/master/Segmentacion%20Semantica%20Git/Augmented%20Train%20Data/Examples/monalisa.jpg){height="200" width="200"}
 ![Arrow](https://github.com/AndresFlorez-Git/Proyecto_Electronica/blob/master/Segmentacion%20Semantica%20Git/Augmented%20Train%20Data/Examples/arrow.png)
 ![Monalisa2](https://github.com/AndresFlorez-Git/Proyecto_Electronica/blob/master/Segmentacion%20Semantica%20Git/Augmented%20Train%20Data/Examples/aug_0_3324.png)
 ![Monalisa3](https://github.com/AndresFlorez-Git/Proyecto_Electronica/blob/master/Segmentacion%20Semantica%20Git/Augmented%20Train%20Data/Examples/aug_0_5133.png)
