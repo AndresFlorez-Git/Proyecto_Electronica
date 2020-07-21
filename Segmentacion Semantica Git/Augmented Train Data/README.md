@@ -7,7 +7,9 @@ Dichas técnicas corresponden a rotaciones, reflexiones, translaciones, cambios 
 
 A partir imágenes originales, es posible obtener un gran volumen de datos a partir de las transformaciones de los datos originales.
 
+![Monalisa](/Examples/aug_0_3324.png)
+Format: ![Alt Text](url)
 
-# Aplicación Práctica
+## Aplicación Práctica
 
 Para poder utilizar estas técnicas adecuadamente en el proceso de entrenamiento de un modelo de segmentación semántica resulta necesario realizar las mismas transformaciones tanto a las imágenes como de las mascaras binarias de segmentación.
