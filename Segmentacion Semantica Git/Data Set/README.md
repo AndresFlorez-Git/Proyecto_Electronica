@@ -11,4 +11,3 @@ Para obtener un conjunto de datos mas extenso, es necesario recurrir a un proces
 ### Explorar:
 - Función de Data Augmentation. [Aquí](https://github.com/AndresFlorez-Git/Proyecto_Electronica/tree/master/Segmentacion%20Semantica%20Git/Preprocessing)
 - Conjunto de datos aumentados. [Aquí](https://github.com/AndresFlorez-Git/Proyecto_Electronica/tree/master/Segmentacion%20Semantica%20Git/Augmented%20Train%20Data)
-umentados. [Aquí](https://github.com/AndresFlorez-Git/Proyecto_Electronica/tree/master/Segmentacion%20Semantica%20Git/Augmented%20Train%20Data)
