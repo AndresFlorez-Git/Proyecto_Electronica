@@ -22,6 +22,19 @@ Por lo tanto, se estudian dos arquitecturas de segmentación semántica, modelo 
 Dado que las arquitecturas empleadas en el proceso de segmentación semántica hacen uso de redes neuronales convolucionales, resulta llamativo visualizar las características extraídas por la red capa a capa de los procesos de convolución, para así formase una idea de como es el proceso de clasificación o segmentación.
 
 
+### Filtros.
+Los parámetros optimizados en las capas convolucionales de las arquitecturas empleadas corresponden a los distintos filtros que se emplean en las imágenes para la extracción de características.
+El tamaño del filtro y la cantidad de estos, repercuten directamente en las características extraídas en cada capa convolucional. Cada valor de los filtros típicamente corresponde a valores entre -1 y 1.
+
+
+### Métrica y Función de costo
+Dada la naturaleza del proceso de segmentación semántica en imágenes, una métrica adecuada para evaluar el rendimiento del modelo implementado corresponde a la precisión (accuracy), el cual es computado como la relación entre la cantidad de pixeles correctamente clasificados y la cantidad total de pixeles de la imagen.
+Por otra parte, la función de costo más apropiada para el problema de segmentación binaria (Panel o fondo), resulta conveniente que la función a optimizar sea la denominada *Binary crossentropy*, la cual es un caso específico de la función "Categorical Crossentropy" donde se asume solamente dos categorías.
+La función de coste es:
+
+Donde $$\hat{y_i}$$ corresponde al i-eximo valor de la salida del modelo, y $$y_i$$ corresponde al valor objetivo.
+ 
+
 
 
 ### Referencias:

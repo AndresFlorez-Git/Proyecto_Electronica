@@ -39,10 +39,18 @@ IMG_CHANNELS = 3
 
 # Path de las imagenes, mascaras e imagenes de prueba
 
-TEST_PATH_IMAGES = 'Dataset\Segmentar\Test'
 
-# TEST_PATH_IMAGES ='C:\\Users\\ANDRES FELIPE FLOREZ\\Documents\\Trabajos Universidad\\Decimo Semestre\\Proyecto de grado Electronica\\Segmentacion Semantica\\Dataset\\Segmentar\\Test'
-# TEST_PATH_IMAGES=str(os.path.dirname(os.path.abspath('prueba_carga_modelo.py'))) + '\Dataset\Segmentar\Test'
+
+BASE_PATH = str(os.path.dirname(os.path.abspath('')))
+
+if ('\\' in BASE_PATH) == True:
+    separator_dir = '\\'
+else:
+    separator_dir = '/'
+# Path de las imagenes, mascaras e imagenes de prueba
+
+TEST_PATH_IMAGES = BASE_PATH + separator_dir +'Data Set' + separator_dir +'Test'
+
 
 ##############################################################################
 #################  Procesar las imagenes aumentadas ##########################
@@ -72,7 +80,8 @@ for n, id_ in tqdm(enumerate(Test_images_files), total=len(Test_images_files)):
 #####################  Arquitectura del modelo ###############################
 ##############################################################################
 
-model = tf.keras.models.load_model('Modelo_de_segmentacion.h5')
+print(os.listdir(BASE_PATH +separator_dir + 'Modelos_Guardados' ))
+model = tf.keras.models.load_model('Modelos_Guardados'+separator_dir+'Modelo_U_Net_val_acc_'+str(round(Val_acc,4))+'.h5')
 
 # convert_model_lite = tf.lite.TFLiteConverter.from_keras_model_file('Modelo_de_segmentacion.h5')
 # tflite_model = convert_model_lite.convert()
