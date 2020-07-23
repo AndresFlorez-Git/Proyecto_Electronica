@@ -32,10 +32,17 @@ Dada la naturaleza del proceso de segmentación semántica en imágenes, una mé
 Por otra parte, la función de costo más apropiada para el problema de segmentación binaria (Panel o fondo), resulta conveniente que la función a optimizar sea la denominada *Binary crossentropy*, la cual es un caso específico de la función "Categorical Crossentropy" donde se asume solamente dos categorías.
 La función de coste es:
 
-Donde $$\hat{y_i}$$ corresponde al i-eximo valor de la salida del modelo, y $$y_i$$ corresponde al valor objetivo.
+![loss](https://github.com/AndresFlorez-Git/Proyecto_Electronica/blob/master/Segmentacion%20Semantica%20Git/Figures%20README/loss.png)
+
+Donde $\hat{y_i}$ corresponde al i-eximo valor de la salida del modelo, y $y_i$ corresponde al valor objetivo.
  
 
-
+### Explorar:
+- Base de Datos Original. [Aquí](https://github.com/AndresFlorez-Git/Proyecto_Electronica/tree/master/Segmentacion%20Semantica%20Git/Data%20Set)
+- Preprocesamiento/ Función de Data Augmentation. [Aquí](https://github.com/AndresFlorez-Git/Proyecto_Electronica/tree/master/Segmentacion%20Semantica%20Git/Preprocessing)
+- Base de Datos aumentado. [Aquí](https://github.com/AndresFlorez-Git/Proyecto_Electronica/tree/master/Segmentacion%20Semantica%20Git/Augmented%20Train%20Data)
+- Modelo U-Net. [Aquí](https://github.com/AndresFlorez-Git/Proyecto_Electronica/tree/master/Segmentacion%20Semantica%20Git/Model%20U_Net)
+- Modelo Basic. [Aquí](https://github.com/AndresFlorez-Git/Proyecto_Electronica/tree/master/Segmentacion%20Semantica%20Git/Model%20Basic)
 
 ### Referencias:
 - The MathWorks, Practical Deep Learning Examples, 2019
