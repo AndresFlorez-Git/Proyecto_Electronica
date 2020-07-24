@@ -80,8 +80,8 @@ for n, id_ in tqdm(enumerate(Test_images_files), total=len(Test_images_files)):
 #####################  Arquitectura del modelo ###############################
 ##############################################################################
 
-print(os.listdir(BASE_PATH +separator_dir + 'Modelos_Guardados' ))
-model = tf.keras.models.load_model('Modelos_Guardados'+separator_dir+'Modelo_U_Net_val_acc_'+str(round(Val_acc,4))+'.h5')
+modelos_Guardados = os.listdir(BASE_PATH + separator_dir +'Model U_Net' + separator_dir + 'Modelos_Guardados')
+model = tf.keras.models.load_model('Modelos_Guardados'+separator_dir + modelos_Guardados[-1])
 
 # convert_model_lite = tf.lite.TFLiteConverter.from_keras_model_file('Modelo_de_segmentacion.h5')
 # tflite_model = convert_model_lite.convert()
@@ -99,10 +99,14 @@ preds_test = model.predict(X_test, verbose=1)
 preds_test_t = (preds_test > 0.8).astype(np.uint8)
 
 # Perform a sanity check on some random validation samples
-ix = 5
+ix = 6
 imshow(X_test[ix])
+plt.xticks([])
+plt.yticks([])
 plt.show()
 imshow(np.squeeze(preds_test_t[ix]))
+plt.xticks([])
+plt.yticks([])
 plt.show()
 
 
@@ -184,7 +188,7 @@ c9 = tf.keras.layers.Conv2D(16, (3,3), activation='relu', kernel_initializer='he
 #         break
     
 layers = [c1,c2,c3,c4,c7,c8,c9]
-test_fig = 3
+test_fig = 6
 
 for n in range(len(layers)):
     model_n = tf.keras.Model(inputs = [inputs], outputs = [layers[n]])
@@ -203,9 +207,11 @@ for n in range(len(layers)):
             break
     
     
-    
+plt.figure()
 imagerr = preds_test_t*X_test
 imshow(imagerr[test_fig])
+plt.xticks([])
+plt.yticks([])
 plt.show()
 
 layer = 0

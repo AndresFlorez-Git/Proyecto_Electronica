@@ -29,7 +29,7 @@ El tamaño del filtro y la cantidad de estos, repercuten directamente en las car
 
 ### Métrica y Función de costo
 Dada la naturaleza del proceso de segmentación semántica en imágenes, una métrica adecuada para evaluar el rendimiento del modelo implementado corresponde a la precisión (accuracy), el cual es computado como la relación entre la cantidad de pixeles correctamente clasificados y la cantidad total de pixeles de la imagen.
-Por otra parte, la función de costo más apropiada para el problema de segmentación binaria (Panel o fondo), resulta conveniente que la función a optimizar sea la denominada *Binary crossentropy*, la cual es un caso específico de la función "Categorical Crossentropy" donde se asume solamente dos categorías.
+Por otra parte, la función de costo más apropiada para el problema de segmentación binaria (Panel o fondo), resulta conveniente que la función a optimizar sea la denominada *Binary crossentropy*, la cual es un caso específico de la función *Categorical Crossentropy* donde se asume solamente dos categorías.
 La función de coste es:
 
 ![loss](https://github.com/AndresFlorez-Git/Proyecto_Electronica/blob/master/Segmentacion%20Semantica%20Git/Figures%20README/loss.png)

@@ -184,15 +184,21 @@ Val_acc = results.history['val_acc'][-1]
 model.save('Modelos_Guardados'+separator_dir+'Modelo_U_Net_val_acc_'+str(round(Val_acc,4))+'.h5')
 
 plt.figure(1,figsize=(5,5))
-plt.plot(results.history['loss'], label = 'Train')
+plt.plot(results.history['loss'], label = 'Train loss')
 plt.plot(results.history['val_loss'], label = 'Validation loss')
 plt.legend()
+plt.title('Loss')
+plt.xlabel('epoch')
+plt.ylabel('Loss')
 plt.show()
 
 plt.figure(2,figsize=(5,5))
 plt.plot(results.history['acc'], label = 'Train acc')
 plt.plot(results.history['val_acc'], label = 'Validation acc')
 plt.legend()
+plt.title('Accuracy')
+plt.xlabel('epoch')
+plt.ylabel('Accuracy')
 plt.show()
 
 ##############################################################################
