@@ -19,13 +19,29 @@ Por lo tanto, se estudian dos arquitecturas de segmentación semántica, modelo 
 
 
 ### Extracción de características.
-Dado que las arquitecturas empleadas en el proceso de segmentación semántica hacen uso de redes neuronales convolucionales, resulta llamativo visualizar las características extraídas por la red capa a capa de los procesos de convolución, para así formase una idea de como es el proceso de clasificación o segmentación.
+Dado que las arquitecturas empleadas en el proceso de segmentación semántica hacen uso de redes neuronales convolucionales, resulta llamativo visualizar las características extraídas por la red capa a capa de los procesos de convolución, para así formase una idea de cómo es el proceso de clasificación o segmentación.
+Los siguientes ejemplos son algunos resultados de la implementación del modelo [U-Net](https://github.com/AndresFlorez-Git/Proyecto_Electronica/tree/master/Segmentacion%20Semantica%20Git/Model%20U_Net):
 
+Se observa como las capas convolucionales extraen determinadas características de la imagen principal:
+![c1](https://github.com/AndresFlorez-Git/Proyecto_Electronica/blob/master/Segmentacion%20Semantica%20Git/Figures%20README/c1.png)
+
+Se evidencia la detección de patrones geométricos en la imagen como bordes, superficies y sombras, los cuales están determinados por la intensidad de brillo en las imágenes filtradas.
+
+![c3](https://github.com/AndresFlorez-Git/Proyecto_Electronica/blob/master/Segmentacion%20Semantica%20Git/Figures%20README/c3.png)
+
+Se observa que a medida que se adentra en la profundidad de la red convolucional, las características extraídas por el modelo corresponden a aspectos con mayor abstracción.
+
+![C5](https://github.com/AndresFlorez-Git/Proyecto_Electronica/blob/master/Segmentacion%20Semantica%20Git/Figures%20README/c5.png) 
 
 ### Filtros.
 Los parámetros optimizados en las capas convolucionales de las arquitecturas empleadas corresponden a los distintos filtros que se emplean en las imágenes para la extracción de características.
 El tamaño del filtro y la cantidad de estos, repercuten directamente en las características extraídas en cada capa convolucional. Cada valor de los filtros típicamente corresponde a valores entre -1 y 1.
+Los siguientes ejemplos son algunos resultados de la implementación del modelo [U-Net](https://github.com/AndresFlorez-Git/Proyecto_Electronica/tree/master/Segmentacion%20Semantica%20Git/Model%20U_Net):
 
+De la primera capa convolucional, como la entrada se trata de una imagen RGB, se cuenta con 3 canales (Rojo, Verde y Azul), por lo que existen filtros asociados a cada canal para la extracción de características.
+![rojos](https://github.com/AndresFlorez-Git/Proyecto_Electronica/blob/master/Segmentacion%20Semantica%20Git/Figures%20README/Filtros_rojos.png)
+![verdes](https://github.com/AndresFlorez-Git/Proyecto_Electronica/blob/master/Segmentacion%20Semantica%20Git/Figures%20README/Filtros_verdes.png)
+![azules](https://github.com/AndresFlorez-Git/Proyecto_Electronica/blob/master/Segmentacion%20Semantica%20Git/Figures%20README/Filtros_azules.png)
 
 ### Métrica y Función de costo
 Dada la naturaleza del proceso de segmentación semántica en imágenes, una métrica adecuada para evaluar el rendimiento del modelo implementado corresponde a la precisión (accuracy), el cual es computado como la relación entre la cantidad de pixeles correctamente clasificados y la cantidad total de pixeles de la imagen.
@@ -46,3 +62,5 @@ Donde $\hat{y_i}$ corresponde al i-eximo valor de la salida del modelo, y $y_i$ 
 
 ### Referencias:
 - The MathWorks, Practical Deep Learning Examples, 2019
+
+
