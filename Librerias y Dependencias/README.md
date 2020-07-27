@@ -10,7 +10,7 @@ La versión más actual al momento de desarrollo es python 3.7.6.
 La plataforma ANACONDA ofrece cientos de paquetes y librerías actualizadas y disponibles para su uso. En esta sección se repasará las librerías usadas y si es necesario, su línea de instalación a través del ANACONDA PROMT.
 
 
-| Libreria | version |
+| Libreria | versión |
 | ------ | ------ |
 | Numpy | 1.18.5 |
 | matplotlib base | 3.2.2 |
@@ -19,6 +19,12 @@ La plataforma ANACONDA ofrece cientos de paquetes y librerías actualizadas y di
 | pydot| 1.4.1 |
 | pillow | 7.1.0 |
 | Tensorflow | 1.13.1 GPU version |
+
+Para la correcta instalación de tensorflow-gpu en anaconda, usar en el ANACONDA Promt:
+```sh
+$ conda install -c anaconda tensorflow-gpu
+```
+
 
 ## Para Raspberry Pi:
 
