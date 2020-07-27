@@ -99,7 +99,7 @@ preds_test = model.predict(X_test, verbose=1)
 preds_test_t = (preds_test > 0.8).astype(np.uint8)
 
 # Perform a sanity check on some random validation samples
-ix = 6
+ix = 5
 imshow(X_test[ix])
 plt.xticks([])
 plt.yticks([])
@@ -188,7 +188,7 @@ c9 = tf.keras.layers.Conv2D(16, (3,3), activation='relu', kernel_initializer='he
 #         break
     
 layers = [c1,c2,c3,c4,c7,c8,c9]
-test_fig = 6
+test_fig = 5
 
 for n in range(len(layers)):
     model_n = tf.keras.Model(inputs = [inputs], outputs = [layers[n]])
