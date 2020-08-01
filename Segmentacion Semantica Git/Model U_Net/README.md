@@ -39,7 +39,7 @@ Para el entrenamiento del modelo se utilizo la [base de datos aumentado](https:/
 #### Métrica y Función de costo
 Dada la naturaleza del proceso de segmentación semántica en imágenes, una métrica adecuada para evaluar el rendimiento del modelo implementado corresponde a la precisión (accuracy), el cual es computado como la relación entre la cantidad de pixeles correctamente clasificados y la cantidad total de pixeles de la imagen. Por otra parte, la función de costo más apropiada para el problema de segmentación binaria (Panel o fondo), resulta conveniente que la función a optimizar sea la denominada Binary crossentropy, la cual es un caso específico de la función Categorical Crossentropy donde se asume solamente dos categorías. La función de coste es:
 
-¡[metrica](https://github.com/AndresFlorez-Git/Proyecto_Electronica/blob/master/Segmentacion%20Semantica%20Git/Figures%20README/loss.png)
+![metrica](https://github.com/AndresFlorez-Git/Proyecto_Electronica/blob/master/Segmentacion%20Semantica%20Git/Figures%20README/loss.png)
 
 De acuerdo con la métrica y función de coste utilizados, se obtienen el desempeño mostrado en la figura durante el proceso de entrenamiento.
 ![accuracy](https://github.com/AndresFlorez-Git/Proyecto_Electronica/blob/master/Segmentacion%20Semantica%20Git/Model%20U_Net/Figures%20README/accuracy.png)
