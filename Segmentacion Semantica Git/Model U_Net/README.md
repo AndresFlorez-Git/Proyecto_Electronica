@@ -42,5 +42,5 @@ Dada la naturaleza del proceso de segmentación semántica en imágenes, una mé
 ¡[metrica](https://github.com/AndresFlorez-Git/Proyecto_Electronica/blob/master/Segmentacion%20Semantica%20Git/Figures%20README/loss.png)
 
 De acuerdo con la métrica y función de coste utilizados, se obtienen el desempeño mostrado en la figura durante el proceso de entrenamiento.
-¡[accuracy](https://github.com/AndresFlorez-Git/Proyecto_Electronica/blob/master/Segmentacion%20Semantica%20Git/Model%20U_Net/Figures%20README/accuracy.png)
+![accuracy](https://github.com/AndresFlorez-Git/Proyecto_Electronica/blob/master/Segmentacion%20Semantica%20Git/Model%20U_Net/Figures%20README/accuracy.png)
 ![loss](https://github.com/AndresFlorez-Git/Proyecto_Electronica/blob/master/Segmentacion%20Semantica%20Git/Model%20U_Net/Figures%20README/loss.png)
