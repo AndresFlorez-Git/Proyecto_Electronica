@@ -44,4 +44,15 @@ De acuerdo con la métrica y función de coste utilizados, se obtienen el desemp
 ![accuracy](https://github.com/AndresFlorez-Git/Proyecto_Electronica/blob/master/Segmentacion%20Semantica%20Git/Model%20U_Net/Figures%20README/accuracy.png)
 ![loss](https://github.com/AndresFlorez-Git/Proyecto_Electronica/blob/master/Segmentacion%20Semantica%20Git/Model%20U_Net/Figures%20README/loss.png)
 #### Parámetros del modelo 
-Para obtener el computo de la cantidad total de parámetros del modelo, se debe tener en cuenta el tipo de capa que se este tratando 
+Para obtener el computo de la cantidad total de parámetros del modelo, se debe tener en cuenta el tipo de capa que se este tratando:
+En el siguiente cuadro se resume la cantidad de parámetros por capa.
+
+![summary](https://github.com/AndresFlorez-Git/Proyecto_Electronica/blob/master/Segmentacion%20Semantica%20Git/Model%20U_Net/Figures%20README/parametros.png)
+
+La cantidad total de parámetros mostrados en la tabla corresponde en su mayoría a los valores de los filtros utilizados en las capas convolucionales sumado a los términos Bias de cada uno de los filtros.
+
+### Extracción de características.
+
+### Filtros
+
+### Pruebas
