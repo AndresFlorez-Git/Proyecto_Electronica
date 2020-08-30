@@ -24,8 +24,8 @@ else:
     separator_dir = '/'
 
 
-path_folder_images = BASE_PATH + separator_dir + 'Data Set' + separator_dir + 'Images'
-path_folder_masks = BASE_PATH + separator_dir + 'Data Set' + separator_dir + 'Masks'
+path_folder_images_ajuste = BASE_PATH + separator_dir + 'Data Set' + separator_dir + 'Mezcla' + separator_dir + 'Con ajuste' + separator_dir + 'Images'
+path_folder_masks_ajuste = BASE_PATH + separator_dir + 'Data Set' + separator_dir + 'Mezcla' + separator_dir + 'Con ajuste' + separator_dir + 'Masks'
 Size_image = 200
 images_per_photo = 20
 
@@ -105,8 +105,8 @@ def augmetation_data_set(BASE_PATH ,path_folder_images,path_folder_masks, Size_i
 
     # Los siguientes for loop permiten almacenar las imagenes transformadas en los directorios asignados
     i = 0
-    for batch in image_datagen.flow(data_set_images, save_to_dir = New_path + separator_dir + New_path_images,
-                                                      save_prefix = 'aug',
+    for batch in image_datagen.flow(data_set_images, save_to_dir = New_path + separator_dir + New_path_images ,
+                                                      save_prefix = '1',
                                                       save_format = 'png',
                                                       batch_size = 1, seed = seed
                                                       ):
@@ -115,15 +115,38 @@ def augmetation_data_set(BASE_PATH ,path_folder_images,path_folder_masks, Size_i
             break  
     i = 0
     for batch2 in mask_datagen.flow(data_set_masks, save_to_dir = New_path + separator_dir + New_path_masks,
-                                                      save_prefix = 'aug',
+                                                      save_prefix = '1',
                                                       save_format = 'png',
                                                       batch_size = 1, seed = seed
                                                       ):
         i +=1
         if i == len(images_ids)*images_per_photo:
             break  
+    
+    # Rename the images to a real name:
+    
+    augmented_images_files = next(os.walk(New_path + separator_dir + New_path_images))[2]
+    augmented_masks_files = next(os.walk(New_path + separator_dir + New_path_masks))[2]
+    
+    
+    for i, id_ in tqdm(enumerate(augmented_images_files), total=len(augmented_images_files)):
+        name = id_[2:]
+        count = int(name[:name.find('_')])
+        if count < 50:
+            prefix = 'N_C_F_'
+        if count >= 50 and count< 50*2:
+            prefix = 'N_C_S_'
+        if count >= 50*2 and count< 50*3:
+            prefix = 'N_C_T_'
+        if count >= 50*3:
+            prefix = 'N_S_S_'
+         
+        os.rename(New_path + separator_dir + New_path_images + separator_dir + augmented_images_files[i],New_path + separator_dir + New_path_images + separator_dir + prefix + augmented_images_files[i])
+        os.rename(New_path + separator_dir + New_path_masks + separator_dir + augmented_masks_files[i],New_path + separator_dir + New_path_masks + separator_dir + prefix + augmented_masks_files[i])
 
-            
-            
-augmetation_data_set(BASE_PATH,path_folder_images,path_folder_masks, Size_image, images_per_photo)      
+
+          
+augmetation_data_set(BASE_PATH,path_folder_images_ajuste,path_folder_masks_ajuste, Size_image, images_per_photo)      
+
+
 
