@@ -26,7 +26,7 @@ from keras.optimizers import SGD
 ##############################################################################
 
 # Semilla de números alearorios 
-seed = 54
+seed = 45
 np.random.seed(seed)
 
 # Dimensiones de las imagenes RGB.
@@ -161,6 +161,7 @@ model.add(Conv2D(128, (5,5),  activation='relu', padding='same', kernel_initiali
 model.add(BatchNormalization(axis = 1))
 model.add(MaxPooling2D((2,2)))
 model.add(Conv2D(256, (5,5),  activation='relu', padding='same', kernel_initializer='he_normal'))
+model.add(Dropout(0.5))
 model.add(BatchNormalization(axis = 1))
 model.add(MaxPooling2D((2,2)))
 model.add(Flatten())
@@ -187,7 +188,7 @@ callbacks = [tf.keras.callbacks.EarlyStopping(patience=6, monitor='val_loss'),
 ##############################################################################
 ####################  Resultados del modelo ##################################
 ##############################################################################
-results = model.fit(X_train, Y_train_class, validation_split=0.1, batch_size=8, epochs=50, callbacks=callbacks)
+results = model.fit(X_train, Y_train_class, validation_split=0.1, batch_size=8, epochs=50)
 
 # Descomentar si se quiere guardar el modelo entrenado
 Val_acc = results.history['val_acc'][-1]
@@ -237,7 +238,7 @@ print('Real: ', Y_train_class[ix])
 # Esta función se encuentra dentro d los métodos de sklearn
 
 def plot_confusion_matrix(cm, classes,
-                        normalize=True,
+                        normalize=False,
                         title='Confusion matrix',
                         cmap=plt.cm.Blues):
     """
